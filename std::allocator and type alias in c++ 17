@@ -1,0 +1,20 @@
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+using kest = int;
+int main()
+{
+    kest  a;
+    std::allocator <int> muthu;
+    
+    int *test=muthu.allocate(3);
+    
+    muthu.construct(test,10);
+    
+    std::cout<<test[0]<<std::endl;
+    
+    muthu.destroy(test);
+    muthu.deallocate(test,3);
+}
