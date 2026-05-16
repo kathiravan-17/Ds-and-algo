@@ -1,0 +1,35 @@
+#include <iostream>
+
+void move_zeros(int array[], int n)
+{
+    int left = 0;
+    for (int right = 0; right < n; right++)
+    {
+        if (array[right] != 0)
+        {
+            if (left != right)  // avoid self-swap
+            {
+                std::swap(array[left], array[right]);
+            }
+            left++;
+        }
+    }
+}
+
+void print_array(int array[], int n)
+{
+    for (int i = 0; i < n; i++)
+        std::cout << array[i] << " ";
+    std::cout << std::endl;
+}
+
+int main()
+{
+    int array[] = {0, 1, 0, 3, 12, 0};
+    int n = sizeof(array) / sizeof(array[0]);
+    
+    move_zeros(array, n);
+    print_array(array, n);
+    
+    return 0;
+}
